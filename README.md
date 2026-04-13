@@ -14,14 +14,14 @@
 
 | 序号 | 模块名称 | 核心目的 | 约束焦点 | 角色 |
 | :--- | :--- | :--- | :--- | :--- |
-| 01 | **`UI_Scheduling_System`** | 全局基调定义 | 主题 $\rightarrow$ 场景 $\rightarrow$ 需求优先级 | **调度员** |
-| 02 | **`Spatial_Geometry`** | 消除视觉随意性 | 8px 步进 $\rightarrow$ 空间变量 $\rightarrow$ 对齐 | **量尺** |
-| 03 | **`Atomic_Component_Logic`** | 防止代码冗余 | 原子 $\rightarrow$ 分子 $\rightarrow$ 组织 $\rightarrow$ Props 驱动 | **建筑师** |
-| 04 | **`Global_State_Management`**| 杜绝数据碎片化 | Pinia Setup Store $\rightarrow$ Store-First 闭环 | **仓库管理员** |
-| 05 | **`Data_Driven_Architecture`**| 消除静态死代码 | TS Interface $\rightarrow$ 数据映射 $\rightarrow$ 三态逻辑 | **发动机** |
-| 06 | **`Interaction_State_Matrix`**| 覆盖边缘场景 | Loading $\rightarrow$ Empty $\rightarrow$ Error $\rightarrow$ Disabled | **质检员** |
-| 07 | **`Adaptive_Orchestration`** | 实现完美适配 | `clamp()` 流式设计 $\rightarrow$ 布局重编排 | **变色龙** |
-| 08 | **`Production_Engineering_Standard`**| 确保生产级质量 | TS 零 any $\rightarrow$ BEM 命名 $\rightarrow$ 性能审计 | **工程师** |
+| 01 | **`UI_Scheduling_System`（全局主题样式风格）** | 全局基调定义 | 主题 $\rightarrow$ 场景 $\rightarrow$ 需求优先级 | **调度员** |
+| 02 | **`Spatial_Geometry`(空间几何与间距约束)** | 消除视觉随意性 | 8px 步进 $\rightarrow$ 空间变量 $\rightarrow$ 对齐 | **量尺** |
+| 03 | **`Atomic_Component_Logic`(原子化组件构建)** | 防止代码冗余 | 原子 $\rightarrow$ 分子 $\rightarrow$ 组织 $\rightarrow$ Props 驱动 | **建筑师** |
+| 04 | **`Global_State_Management`（全局状态流转）**| 杜绝数据碎片化 | Pinia Setup Store $\rightarrow$ Store-First 闭环 | **仓库管理员** |
+| 05 | **`Data_Driven_Architecture`(数据驱动架构)**| 消除静态死代码 | TS Interface $\rightarrow$ 数据映射 $\rightarrow$ 三态逻辑 | **发动机** |
+| 06 | **`Interaction_State_Matrix`(交互状态矩阵)**| 覆盖边缘场景 | Loading $\rightarrow$ Empty $\rightarrow$ Error $\rightarrow$ Disabled | **质检员** |
+| 07 | **`Adaptive_Orchestration`（极致响应式编排）** | 实现完美适配 | `clamp()` 流式设计 $\rightarrow$ 布局重编排 | **变色龙** |
+| 08 | **`Production_Engineering_Standard`（生产及代码规范）**| 确保生产级质量 | TS 零 any $\rightarrow$ BEM 命名 $\rightarrow$ 性能审计 | **工程师** |
 
 ---
 
