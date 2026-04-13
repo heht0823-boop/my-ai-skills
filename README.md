@@ -2,78 +2,95 @@
 工作规范、技能指令集、前后端开发约束、设计标准
 
 # 🚀 FISS: Frontend Implementation Skills Specification
-### (前端工程化实现技能约束体系)
+### (前端工程化实现技能约束体系 v3.0)
 
-`FISS` 是一套旨在消除 AI 生成代码“随机感”和“业余感”的工业级指令集。通过 8 个核心维度的强约束，强制 AI 遵循**【定义 $\rightarrow$ 架构 $\rightarrow$ 实现 $\rightarrow$ 审计】**的专业开发链路，确保产出代码具备极高的一致性、鲁棒性和可维护性。
+`FISS` 是一套旨在消除 AI 生成代码“随机感”、“业余感”和“不可维护性”的工业级指令集。它通过 11 个维度的强约束，强制 AI 遵循 **【调度 $\rightarrow$ 架构 $\rightarrow$ 实现 $\rightarrow$ 审计 $\rightarrow$ 验证】** 的专业开发闭环，确保产出代码达到 **Production-Ready (生产级)** 标准。
+
+**核心哲学**：不信任 AI 的“直觉”，只信任基于约束的“工程化输出”。
 
 ---
 
-## 🗺️ 体系地图 (The 8 Pillars)
+## 🗺️ 体系地图 (The 11 Pillars)
 
-本体系由 8 个互补模块组成，覆盖了从需求分析到生产交付的全生命周期：
+FISS 体系由 11 个互补模块组成，覆盖从视觉定义到质量交付的全生命周期：
 
-| 序号 | 模块名称 | 核心目的 | 约束焦点 | 角色 |
+| 序号 | 模块名称 | 核心目的 | 约束焦点 | 角色定位 |
 | :--- | :--- | :--- | :--- | :--- |
-| 01 | **`UI_Scheduling_System`（全局主题样式风格）** | 全局基调定义 | 主题 $\rightarrow$ 场景 $\rightarrow$ 需求优先级 | **调度员** |
-| 02 | **`Spatial_Geometry`(空间几何与间距约束)** | 消除视觉随意性 | 8px 步进 $\rightarrow$ 空间变量 $\rightarrow$ 对齐 | **量尺** |
-| 03 | **`Atomic_Component_Logic`(原子化组件构建)** | 防止代码冗余 | 原子 $\rightarrow$ 分子 $\rightarrow$ 组织 $\rightarrow$ Props 驱动 | **建筑师** |
-| 04 | **`Global_State_Management`（全局状态流转）**| 杜绝数据碎片化 | Pinia Setup Store $\rightarrow$ Store-First 闭环 | **仓库管理员** |
-| 05 | **`Data_Driven_Architecture`(数据驱动架构)**| 消除静态死代码 | TS Interface $\rightarrow$ 数据映射 $\rightarrow$ 三态逻辑 | **发动机** |
-| 06 | **`Interaction_State_Matrix`(交互状态矩阵)**| 覆盖边缘场景 | Loading $\rightarrow$ Empty $\rightarrow$ Error $\rightarrow$ Disabled | **质检员** |
-| 07 | **`Adaptive_Orchestration`（极致响应式编排）** | 实现完美适配 | `clamp()` 流式设计 $\rightarrow$ 布局重编排 | **变色龙** |
-| 08 | **`Production_Engineering_Standard`（生产及代码规范）**| 确保生产级质量 | TS 零 any $\rightarrow$ BEM 命名 $\rightarrow$ 性能审计 | **工程师** |
+| **01** | **`UI_Scheduling_System`** | 全局基调定义 | $\text{Platform\_ID} \times \text{Theme\_ID} \rightarrow$ 骨架与皮肤 | **调度员** |
+| **02** | **`Spatial_Geometry`** | 消除视觉随意性 | 8pt Grid System $\rightarrow$ 语义化空间变量 | **量尺** |
+| **03** | **`Atomic_Component_Logic`**| 防止代码冗余 | 原子 $\rightarrow$ 分子 $\rightarrow$ 组织 $\rightarrow$ Props 驱动 | **建筑师** |
+| **04** | **`Global_State_Management`**| 杜绝数据碎片化 | Pinia Setup Store $\rightarrow$ Store-First 闭环 | **仓库管理员** |
+| **05** | **`Data_Driven_Architecture`**| 消除静态死代码 | TS Interface $\rightarrow$ 数据映射 $\rightarrow$ 三态逻辑 | **发动机** |
+| **06** | **`Interaction_State_Matrix`**| 覆盖边缘场景 | $\text{Loading} \rightarrow \text{Empty} \rightarrow \text{Error} \rightarrow \text{Disabled}$ | **质检员** |
+| **07** | **`Adaptive_Orchestration`** | 实现完美适配 | `clamp()` 流式设计 $\rightarrow$ 结构性重编排 | **变色龙** |
+| **08** | **`Production_Engineering_Standard`**| 确保生产质量 | 零 `any` $\rightarrow$ BEM 命名 $\rightarrow$ 逻辑解耦 | **工程师** |
+| **09** | **`System_File_Orchestration`**| 规范项目组织 | 分层架构 $\rightarrow$ 路径可预测 $\rightarrow$ 导出规范 | **图书管理员** |
+| **10** | **`Inclusive_A11y_Standard`** | 确保可用性/无障碍 | POUR原则 $\rightarrow$ ARIA增强 $\rightarrow$ 键盘导航 | **包容官** |
+| **11** | **`QA_Verification_Protocol`** | 消除交付盲点 | 黑盒模拟 $\rightarrow$ 边界压力测试 $\rightarrow$ 链路走查 | **压力测试员** |
 
 ---
 
-## 🛠️ 落地执行流程 (The Execution Pipeline)
+## 🛠️ 落地执行流 (The Execution Pipeline)
 
-**严禁直接要求 AI “写一个页面”**。必须引导 AI 按照以下五个阶段顺序执行，每一步必须经过你的确认才能进入下一步。
+**严禁跳步执行**。必须引导 AI 按照以下五个阶段顺序进行，每一步需经过用户确认。
 
-### 第一阶段：环境初始化 (Bootstrapping)
-将所有 `.md` 技能文件发送给 AI，并发送启动指令：
-> **Prompt**: "请加载 FISS 前端工程化约束体系的所有 8 个模块。在接下来的开发中，你必须严格遵守这些 Skill 的约束，并在每个交付阶段执行对应的【校验点】。确认加载完成请告知。"
+### Phase 1: 环境初始化 (Bootstrapping)
+**动作**：加载 FISS 全量 11 个 Skill 模块。
+> **Prompt**: "请加载 FISS 前端工程化约束体系的所有 11 个模块。在接下来的开发中，你必须严格遵守这些 Skill 的约束，并在每个交付阶段执行对应的【校验点】。确认加载完成请告知。"
 
-### 第二阶段：需求调度与计划 (Orchestration)
-基于 `UI_Scheduling_System` 定义本次任务的全局基调。
-> **Prompt**: "现在执行 [XXX 需求]。请基于 `UI_Scheduling_System` 输出本次任务的【调度计划】，包含：主题风格、目标用户场景、核心功能优先级。"
+### Phase 2: 需求调度与计划 (Orchestration)
+**动作**：基于 `UI_Scheduling_System` 锁定视觉与交互基调。
+> **Prompt**: "现在执行 [XXX 需求]。请输出【调度计划】：
+> 1. 锁定 $\text{Platform\_ID}$ 与 $\text{Theme\_ID}$。
+> 2. 分析目标用户场景、信息密度及交互优先级。"
 
-### 第三阶段：架构蓝图定义 (Blueprinting)
-在写代码前，强制 AI 完成底层设计（这是防止代码崩坏的关键）。
-> **Prompt**: "请在进入代码实现前，提供以下架构方案：
-> 1. **[组件清单]**：基于 `Atomic_Component_Logic` 列出本次需要的原子组件。
-> 2. **[状态模型]**：基于 `Global_State_Management` 定义 Pinia Setup Store 的结构及 Store-First 流转逻辑。
-> 3. **[数据契约]**：基于 `Data_Driven_Architecture` 定义所有接口的 TypeScript Interface。"
+### Phase 3: 架构蓝图定义 (Blueprinting)
+**动作**：在写代码前，定义所有静态契约与物理结构（防止代码崩坏的关键）。
+> **Prompt**: "请在实现代码前，提供【架构方案】：
+> 1. **[组件清单]**：基于 `Atomic_Component_Logic` 定义原子/分子组件。
+> 2. **[状态模型]**：基于 `Global_State_Management` 定义 Setup Store 结构。
+> 3. **[数据契约]**：基于 `Data_Driven_Architecture` 定义 TS Interface。
+> 4. **[文件编排]**：基于 `System_File_Orchestration` 提供具体的 $\text{File Tree}$ 预览及存放路径。"
 
-### 第四阶段：分层开发实现 (Layered Build)
-引导 AI 按照视觉 $\rightarrow$ 结构 $\rightarrow$ 逻辑 $\rightarrow$ 适配的顺序编写代码。
-> **Prompt**: "请开始实现代码。必须严格遵循：`Spatial_Geometry` 的 8px 步进 $\rightarrow$ `Adaptive_Orchestration` 的流式布局 $\rightarrow$ `Interaction_State_Matrix` 的全状态覆盖 $\rightarrow$ `Production_Engineering_Standard` 的 BEM 命名与 TS 类型。"
+### Phase 4: 分层开发实现 (Layered Build)
+**动作**：由浅入深，将视觉、结构、逻辑、无障碍逐层注入。
+> **Prompt**: "请开始实现代码。执行顺序：
+> $\text{CSS Variables} \rightarrow \text{Semantic HTML} \rightarrow \text{8px Geometry} \rightarrow \text{Fluid Layout} \rightarrow \text{A11y Standards} \rightarrow \text{Full-State Logic} \rightarrow \text{TS Type Safety}$。"
 
-### 第五阶段：生产级审计 (Final Audit)
-要求 AI 对产出的代码进行自我批判和审计。
-> **Prompt**: "请基于 `Production_Engineering_Standard` 对上述代码进行【代码审计】，提交审计报告，重点标注：TS 类型完整度、BEM 规范执行情况、逻辑解耦程度以及性能优化点。"
+### Phase 5: 生产级审计与验证 (Audit & Verification)
+**动作**：强制 AI 进行自我批判与极端场景模拟。
+> **Prompt**: "请提交【最终交付报告】，包含：
+> 1. **[代码审计]**：基于 `Production_Engineering_Standard` 检查 $\text{any}$ 使用、BEM 命名与解耦程度。
+> 2. **[无障碍审计]**：基于 `Inclusive_A11y_Standard` 确认键盘导航与 ARIA 标签覆盖情况。
+> 3. **[QA 验证报告]**：基于 `QA_Verification_Protocol` 执行极端数据模拟（长文本/空数据/并发点击）并输出 $\text{Interaction Trace}$。"
 
 ---
 
 ## 🚨 违规红线 (Red-Line Checks)
 
-如果在 AI 的输出中看到以下内容，请立即判定为 **FISS 违规** 并要求其重写：
+一旦出现以下特征，立即判定为 **FISS 违规**，要求重写：
 
-*   **视觉违规**：出现 `padding: 15px` 或 `margin: 21px` $\rightarrow$ $\text{Violation: Spatial\_Geometry}$
-*   **结构违规**：在页面中看到重复的 HTML 结构块，而非 `.map()` 渲染 $\rightarrow$ $\text{Violation: Data\_Driven\_Architecture}$
-*   **数据违规**：在 `.vue` 组件中直接出现 `axios.get` 或 `fetch` $\rightarrow$ $\text{Violation: Global\_State\_Management}$
-*   **状态违规**：只有成功加载的界面，缺失骨架屏或空状态 $\rightarrow$ $\text{Violation: Interaction\_State\_Matrix}$
-*   **适配违规**：出现 `width: 1200px` 或简单的 `max-width` 缩放 $\rightarrow$ $\text{Violation: Adaptive\_Orchestration}$
-*   **工程违规**：出现 `any` 类型、`.box-1` 类名或巨型组件逻辑 $\rightarrow$ $\text{Violation: Production\_Engineering\_Standard}$
+| 违规类型 | 典型症状 | 判定依据 |
+| :--- | :--- | :--- |
+| **视觉违规** | `padding: 13px`, `margin: 20px` | $\text{Violation: Spatial\_Geometry}$ |
+| **结构违规** | 手动复制重复 HTML 块而非 `.map()` | $\text{Violation: Data\_Driven\_Architecture}$ |
+| **数据违规** | 在组件内直接写 `axios.get` 或 `fetch` | $\text{Violation: Global\_State\_Management}$ |
+| **状态违规** | 缺失 Skeleton 骨架屏或 Empty State | $\text{Violation: Interaction\_State\_Matrix}$ |
+| **适配违规** | 出现 `width: 1200px` 或简单的 `@media` 缩放 | $\text{Violation: Adaptive\_Orchestration}$ |
+| **工程违规** | 出现 `any` 类型, `.box-1` 类名, 或巨型组件 | $\text{Violation: Production\_Engineering\_Standard}$ |
+| **组织违规** | 将所有代码堆在一个文件 / 随意命名文件夹 | $\text{Violation: System\_File\_Orchestration}$ |
+| **可用性违规** | 纯图标按钮无 `aria-label` / 无法 Tab 导航 | $\text{Violation: Inclusive\_A11y\_Standard}$ |
+| **验证违规** | 交付代码时未提供 $\text{QA Test Report}$ | $\text{Violation: QA\_Verification\_Protocol}$ |
 
 ---
 
-## 📂 文件组织建议
+## 📂 项目组织建议
 
-建议将本体系文件存储于项目根目录的 `.fiss` 文件夹中：
+建议将 FISS 约束体系作为项目的“法典”存储在根目录下，确保 AI 随时可检索：
 
 ```text
 /your-project
-  ├── .fiss/
+  ├── .fiss/                 # FISS 约束法典 (Read-Only)
   │   ├── 01_UI_Scheduling_System.md
   │   ├── 02_Spatial_Geometry.md
   │   ├── 03_Atomic_Component_Logic.md
@@ -81,9 +98,13 @@
   │   ├── 05_Data_Driven_Architecture.md
   │   ├── 06_Interaction_State_Matrix.md
   │   ├── 07_Adaptive_Orchestration.md
-  │   └── 08_Production_Engineering_Standard.md
-  └── README.md (本文件)
+  │   ├── 08_Production_Engineering_Standard.md
+  │   ├── 09_System_File_Orchestration.md
+  │   ├── 10_Inclusive_A11y_Standard.md
+  │   └── 11_QA_Verification_Protocol.md
+  ├── src/                   # 严格遵循 FISS 产出的代码
+  └── README.md              # 本文档
 ```
 
 ---
-**FISS 旨在将 AI 的输出从 "It works" (能跑就行) 提升至 "Production Ready" (生产可用)。**
+**FISS v3.0 旨在将 AI 的角色从 "Code Generator" (代码生成器) $\rightarrow$ "Software Architect" (软件架构师) $\rightarrow$ "QA Engineer" (质量工程师) 实现全链路升级。**
